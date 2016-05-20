@@ -46,7 +46,14 @@ then
     # ssl@botillsammans.nu is an alias of jwanglof@botillsammans.nu
     #./certbot-auto certonly --webroot --agree-tos --email ssl@botillsammans.nu -w /etc/ssl/botillsammans -d botillsammans.nu -d www.botillsammans.nu
 #    ./certbot-auto certonly --webroot --agree-tos --email ssl@botillsammans.nu -w /etc/ssl/botillsammans -d botillsammans.klumpen.se
-    echo "Certbot command:", ${CERTONLY_COMMAND}
+    if [ -z "$LETSENCRYPT_DRY_RUN" ]; then
+        echo "Will run this certbot-command:", ${CERTONLY_COMMAND}
+        ${CERTONLY_COMMAND}
+        echo "Certbot-command DONE"
+    else
+        echo "DRY RUN!"
+        echo "Would run this certbot-command:", ${CERTONLY_COMMAND}
+    fi
 else
     echo "Not first time"
 fi
