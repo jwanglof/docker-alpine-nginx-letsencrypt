@@ -2,14 +2,14 @@ FROM alpine:3.3
 
 MAINTAINER Johan Wänglöf <jwanglof@gmail.com>
 
-###
-# Nginx
-###
-RUN apk add --update nginx
-
-# Symlink nginx' default logs to std* so Docker Logs can see them
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
+####
+## Nginx
+####
+#RUN apk add --update nginx
+#
+## Symlink nginx' default logs to std* so Docker Logs can see them
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log
+#RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 
 ###
@@ -46,6 +46,6 @@ WORKDIR /
 COPY ./run.sh /
 RUN chmod a+x /run.sh
 
-EXPOSE 80 443
+#EXPOSE 80 443
 
 CMD ["sh", "/run.sh"]

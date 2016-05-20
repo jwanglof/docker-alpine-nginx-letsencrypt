@@ -69,8 +69,8 @@ fi
 # Go back to root as default
 cd /
 
-echo "Starting Nginx"
-
-/usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"
-
-echo "Failed starting Nginx!"
+#echo "Starting Nginx"
+#
+#/usr/sbin/nginx -c /etc/nginx/nginx.conf -g "daemon off;"
+#
+#echo "Failed starting Nginx!"
