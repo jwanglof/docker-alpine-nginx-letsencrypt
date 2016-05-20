@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+# Creates the directory the cert will be in
+if [ ! -z "$LETSENCRYPT_WEBROOT_PATH" ]; then
+    mkdir -p $LETSENCRYPT_WEBROOT_PATH
+else
+    mkdir /etc/ssl/letsencrypt
+fi
+
 # $LETSENCRYPT_FIRST_TIME is an environment variable
 if [ "$LETSENCRYPT_FIRST_TIME" = "true" ]
 then

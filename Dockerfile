@@ -31,7 +31,6 @@ RUN export CERTBOT_DEPS="py-pip \
 RUN pip install --upgrade --no-cache-dir pip virtualenv
 
 RUN mkdir /letsencrypt
-RUN mkdir /etc/ssl/botillsammans
 WORKDIR /letsencrypt
 
 # Get the certbot so we can use Lets Encrypt
